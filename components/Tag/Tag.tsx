@@ -9,7 +9,7 @@ const Tag = ({ size, color, href, children, className, ...props }: TagProps): JS
       className={cn(styles.tag, className, {
         [styles.s]: size === 's',
         [styles.m]: size === 'm',
-        [styles.ghots]: color === 'ghost',
+        [styles.ghost]: color === 'ghost',
         [styles.red]: color === 'red',
         [styles.green]: color === 'green',
         [styles.gray]: color === 'gray',

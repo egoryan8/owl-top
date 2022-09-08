@@ -26,6 +26,9 @@ export default function Home(): JSX.Element {
       <Tag size="s" color="gray">
         Gray
       </Tag>
+      <Tag size="s" color="ghost">
+        Ghost
+      </Tag>
     </>
   );
 }
