@@ -1,6 +1,7 @@
 import Button from '../components/Button/Button';
 import Htag from '../components/Htag/Htag';
 import P from '../components/P/P';
+import Rating from '../components/Rating/Rating';
 import Tag from '../components/Tag/Tag';
 
 export default function Home(): JSX.Element {
@@ -29,6 +30,7 @@ export default function Home(): JSX.Element {
       <Tag size="s" color="ghost">
         Ghost
       </Tag>
+      <Rating rating={4}></Rating>
     </>
   );
 }
