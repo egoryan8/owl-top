@@ -11,13 +11,31 @@ const Rating = ({ isEditable = false, rating, setRating, ...props }: RatingProps
     constructRating(rating);
   }, [rating]);
 
+  const changeDisplay = (i: number) => {
+    if (!isEditable || !setRating) {
+      return;
+    }
+    constructRating(i);
+  };
+
+  const onClick = (i: number) => {
+    if (!isEditable || !setRating) {
+      return;
+    }
+    setRating(i);
+  };
+
   const constructRating = (currentRating: number) => {
-    const updatedArray = ratingArray.map((rating: JSX.Element, index: number) => {
+    const updatedArray = ratingArray.map((r: JSX.Element, index: number) => {
       return (
         <svg
           className={cn(styles.star, {
             [styles.filled]: index < currentRating,
+            [styles.editable]: isEditable,
           })}
+          onMouseEnter={() => changeDisplay(index + 1)}
+          onMouseLeave={() => changeDisplay(rating)}
+          onClick={() => onClick(index + 1)}
           width="20"
           height="20"
           viewBox="0 0 20 20"

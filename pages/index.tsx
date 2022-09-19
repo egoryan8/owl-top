@@ -1,3 +1,4 @@
+import React from 'react';
 import Button from '../components/Button/Button';
 import Htag from '../components/Htag/Htag';
 import P from '../components/P/P';
@@ -5,6 +6,7 @@ import Rating from '../components/Rating/Rating';
 import Tag from '../components/Tag/Tag';
 
 export default function Home(): JSX.Element {
+  const [rating, setRating] = React.useState(0);
   return (
     <>
       <Htag tag="h1">Привет</Htag>
@@ -30,7 +32,7 @@ export default function Home(): JSX.Element {
       <Tag size="s" color="ghost">
         Ghost
       </Tag>
-      <Rating rating={4}></Rating>
+      <Rating rating={rating} setRating={setRating} isEditable={true}></Rating>
     </>
   );
 }
