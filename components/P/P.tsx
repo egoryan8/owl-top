@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './P.module.css';
-import { PProps } from './p.props';
+import { PProps } from './P.props';
 import cn from 'classnames';
 
 const P = ({ size = 'm', children, className, ...props }: PProps): JSX.Element => {
