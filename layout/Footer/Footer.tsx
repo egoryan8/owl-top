@@ -4,7 +4,7 @@ import { FooterProps } from './Footer.props';
 import cn from 'classnames';
 
 const Footer = ({ ...props }: FooterProps): JSX.Element => {
-  return <div {...props}>Header</div>;
+  return <div {...props}>Footer</div>;
 };
 
 export default Footer;
