@@ -37,11 +37,6 @@ function Home({ menu }: HomeProps): JSX.Element {
         Ghost
       </Tag>
       <Rating rating={rating} setRating={setRating} isEditable={true}></Rating>
-      <ul>
-        {menu.map((item) => (
-          <li key={item._id.secondCategory}>{item._id.secondCategory}</li>
-        ))}
-      </ul>
     </>
   );
 }
