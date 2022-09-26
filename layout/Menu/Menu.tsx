@@ -5,6 +5,7 @@ import styles from './Menu.module.css';
 import { AppContext } from '../../context/app.context';
 import { FirstLevelMenuItem, PageItem } from '../../interfaces/menu.interface';
 import { TopLevelCategory } from '../../interfaces/page.interface copy';
+import Link from 'next/link';
 
 const firstLevelMenu: FirstLevelMenuItem[] = [
   {
@@ -84,15 +85,18 @@ const Menu = (): JSX.Element => {
       <>
         {firstLevelMenu.map((m) => (
           <div key={m.route}>
-            <a href={`/${m.route}`}>
-              <div
-                className={cn(styles.firstLevel, {
-                  [styles.firstLevelActive]: m.id == firstCategory,
-                })}>
-                {m.icon}
-                <span>{m.name}</span>
-              </div>
-            </a>
+            <Link href={`/${m.route}`}>
+              <a>
+                <div
+                  className={cn(styles.firstLevel, {
+                    [styles.firstLevelActive]: m.id == firstCategory,
+                  })}>
+                  {m.icon}
+                  <span>{m.name}</span>
+                </div>
+              </a>
+            </Link>
+
             {m.id == firstCategory && renderSecondLevel(m)}
           </div>
         ))}
@@ -120,13 +124,14 @@ const Menu = (): JSX.Element => {
 
   const renderThirdLevel = (pages: PageItem[], route: string) => {
     return pages.map((p) => (
-      <a
-        href={`/${route}/${p.alias}`}
-        className={cn(styles.thirdLevel, {
-          [styles.thirdLevelActive]: false,
-        })}>
-        {p.category}
-      </a>
+      <Link href={`/${route}/${p.alias}`}>
+        <a
+          className={cn(styles.thirdLevel, {
+            [styles.thirdLevelActive]: false,
+          })}>
+          {p.category}
+        </a>
+      </Link>
     ));
   };
 
