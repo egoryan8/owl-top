@@ -27,13 +27,13 @@ export interface PageModel {
   alias: string;
   title: string;
   category: string;
-  seoText: string;
+  seoText?: string;
   tagsTitle: string;
   metaTitle: string;
   metaDescription: string;
   firstCategory: TopLevelCategory;
-  advantages: PageAdvantage[];
+  advantages?: PageAdvantage[];
   createdAt: Date;
   updatedAt: Date;
-  hh: HhData;
+  hh?: HhData;
 }
