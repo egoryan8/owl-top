@@ -1,5 +1,6 @@
 .sidebar {
   display: grid;
+  grid-template-rows: auto auto 1fr;
   gap: 20px;
 }
 
