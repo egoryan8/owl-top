@@ -1,4 +1,4 @@
-import { TopLevelCategory } from './page.interface copy';
+import { TopLevelCategory } from './page.interface';
 export interface PageItem {
   alias: string;
   title: string;

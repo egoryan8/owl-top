@@ -3,6 +3,7 @@
   box-sizing: border-box;
   margin-right: 5px;
   border-radius: 20px;
+  width: fit-content;
 }
 
 .s {
@@ -25,12 +26,12 @@
 
 .red {
   color: var(--white);
-  background: #000;
   background: #de0000;
   font-weight: 700;
 }
 
 .gray {
+  color: var(--white);
   background: #b3c0d9;
   font-weight: 700;
 }

@@ -3,7 +3,7 @@ import React from 'react';
 import { withLayout } from '../../layout/Layout';
 import axios from 'axios';
 import { MenuItem } from '../../interfaces/menu.interface';
-import { PageModel, TopLevelCategory } from '../../interfaces/page.interface copy';
+import { PageModel, TopLevelCategory } from '../../interfaces/page.interface';
 import { ParsedUrlQuery } from 'querystring';
 import { ProductModel } from '../../interfaces/product.interface';
 import { firstLevelMenu } from '../../helpers/helpers';

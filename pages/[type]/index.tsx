@@ -3,8 +3,8 @@ import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next';
 import { ParsedUrlQuery } from 'querystring';
 import React from 'react';
 import { firstLevelMenu } from '../../helpers/helpers';
-import { FirstLevelMenuItem, MenuItem } from '../../interfaces/menu.interface';
-import { TopLevelCategory } from '../../interfaces/page.interface copy';
+import { MenuItem } from '../../interfaces/menu.interface';
+import { TopLevelCategory } from '../../interfaces/page.interface';
 import { withLayout } from '../../layout/Layout';
 
 function Type({ firstCategory }: TypeProps): JSX.Element {

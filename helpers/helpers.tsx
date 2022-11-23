@@ -1,5 +1,5 @@
 import { FirstLevelMenuItem } from '../interfaces/menu.interface';
-import { TopLevelCategory } from '../interfaces/page.interface copy';
+import { TopLevelCategory } from '../interfaces/page.interface';
 
 export const firstLevelMenu: FirstLevelMenuItem[] = [
   {
