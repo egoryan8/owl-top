@@ -8,6 +8,8 @@ import Tag from '../components/Tag/Tag';
 import { withLayout } from '../layout/Layout';
 import axios from 'axios';
 import { MenuItem } from '../interfaces/menu.interface';
+import Input from "../components/Input/Input";
+import Textarea from "../components/Textarea/Textarea";
 
 function Home({ menu }: HomeProps): JSX.Element {
   const [rating, setRating] = React.useState(0);
@@ -37,6 +39,8 @@ function Home({ menu }: HomeProps): JSX.Element {
         Ghost
       </Tag>
       <Rating rating={rating} setRating={setRating} isEditable={true}></Rating>
+      <Input placeholder='Тест'/>
+      <Textarea placeholder='Тест текстарии'/>
     </>
   );
 }
