@@ -17,7 +17,7 @@ const Sort = ({sort, setSort, className, ...props}: SortProps): JSX.Element => {
           <rect y="5" width="14" height="3" rx="1.5"/>
           <rect y="10" width="8" height="3" rx="1.5"/>
         </svg>
-        По&nbsp;рейтингу
+        По рейтингу
       </span>
       <span
         onClick={() => setSort(SortEnum.Price)}
@@ -30,7 +30,7 @@ const Sort = ({sort, setSort, className, ...props}: SortProps): JSX.Element => {
           <rect y="5" width="14" height="3" rx="1.5"/>
           <rect y="10" width="8" height="3" rx="1.5"/>
         </svg>
-        По&nbsp;цене
+        По цене
       </span>
 
     </div>

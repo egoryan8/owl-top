@@ -13,7 +13,7 @@
 
 .wrapper {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: auto auto;
   gap: 40px;
 }
 
@@ -22,4 +22,14 @@
   grid-template-columns: 20px 1fr;
   align-items: center;
   gap: 8px;
+  cursor: pointer;
+  transition: opacity .4s;
+}
+
+.wrapper span:hover {
+  opacity: .7;
+}
+
+.wrapper span:not(.active) {
+  grid-template-columns: 1fr;
 }
