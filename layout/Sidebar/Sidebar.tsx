@@ -3,6 +3,7 @@ import styles from './Sidebar.module.css';
 import { SidebarProps } from './Sidebar.props';
 import cn from 'classnames';
 import Menu from '../Menu/Menu';
+import Search from "../../components/Search/Search";
 
 const Sidebar = ({ className, ...props }: SidebarProps): JSX.Element => {
   return (
@@ -35,7 +36,7 @@ const Sidebar = ({ className, ...props }: SidebarProps): JSX.Element => {
           fill="#7653FC"
         />
       </svg>
-      <div>поиск...</div>
+      <Search/>
       <Menu />
     </div>
   );

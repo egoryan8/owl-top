@@ -3,12 +3,12 @@ import { ButtonProps } from './Button.props';
 import styles from './Button.module.css';
 import cn from 'classnames';
 
-const Button = ({ appearance, arrow = 'none', children, ...props }: ButtonProps): JSX.Element => {
+const Button = ({ appearance, arrow = 'none', children, className, ...props }: ButtonProps): JSX.Element => {
   return (
     <button
-      className={cn(styles.button, {
-        [styles.primary]: appearance === 'primary',
-        [styles.ghost]: appearance === 'ghost',
+      className={cn(className, styles.button, {
+        [styles.primary]: appearance == 'primary',
+        [styles.ghost]: appearance == 'ghost',
       })}
       {...props}>
       {children}
