@@ -8,6 +8,7 @@ import Button from "../Button/Button";
 import {declOfNum, priceRu} from "../../helpers/helpers";
 import Divider from "../Divider/Divider";
 import Image from "next/image";
+import cn from "classnames";
 
 const Product = ({product}: ProductProps): JSX.Element => {
   return (
@@ -25,15 +26,33 @@ const Product = ({product}: ProductProps): JSX.Element => {
       <div className={styles.price}>
         {priceRu(product.price)}
         {product.oldPrice &&
-          <Tag className={styles.oldPrice} color='green' size='s'>{priceRu(product.oldPrice - product.price)}</Tag>}
+          <Tag
+            className={styles.oldPrice}
+            color='green'
+            size='s'
+          >
+            - {priceRu(product.oldPrice - product.price)}
+          </Tag>
+        }
       </div>
       <div className={styles.credit}>{priceRu(product.credit)}<span className={styles.month}>/мес</span></div>
       <div className={styles.rating}><Rating rating={product.reviewAvg ?? product.initialRating}/></div>
-      <div className={styles.tags}>{product.categories.map(c => <Tag className={styles.category} color='ghost' size='s'
-                                                                     key={c}>{c}</Tag>)}</div>
+      <div className={styles.tags}>
+        {product.categories.map(c =>
+          <Tag
+            className={styles.category}
+            color='ghost'
+            size='s'
+            key={c}
+          >
+            {c}
+          </Tag>
+        )}
+      </div>
       <div className={styles.priceTitle}>цена</div>
       <div className={styles.creditTitle}>кредит</div>
-      <div className={styles.rateTitle}>{product.reviewCount} {declOfNum(product.reviewCount, ['отзыв', 'отзыва', 'отзывов'])}</div>
+      <div
+        className={styles.rateTitle}>{product.reviewCount} {declOfNum(product.reviewCount, ['отзыв', 'отзыва', 'отзывов'])}</div>
       <Divider className={styles.hr}/>
       <div className={styles.description}>{product.description}</div>
       <div className={styles.feature}>
@@ -61,7 +80,7 @@ const Product = ({product}: ProductProps): JSX.Element => {
           </div>
         }
       </div>
-      <Divider className={styles.hr}/>
+      <Divider className={cn(styles.hr, styles.hr2)}/>
       <div className={styles.actions}>
         <Button appearance='primary'>Узнать подробнее</Button>
         <Button appearance='ghost' arrow='right' className={styles.reviewButton}>Читать отзывы</Button>
