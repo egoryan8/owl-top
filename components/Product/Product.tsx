@@ -1,18 +1,26 @@
 import React from 'react';
 import styles from './Product.module.css';
 import {ProductProps} from './Product.props';
-import cn from 'classnames';
 import Card from "../Card/Card";
 import Rating from "../Rating/Rating";
 import Tag from "../Tag/Tag";
 import Button from "../Button/Button";
 import {declOfNum, priceRu} from "../../helpers/helpers";
 import Divider from "../Divider/Divider";
+import Image from "next/image";
 
-const Product = ({product, children, className, ...props}: ProductProps): JSX.Element => {
+const Product = ({product}: ProductProps): JSX.Element => {
   return (
     <Card className={styles.product}>
-      <div className={styles.logo}><img src={process.env.NEXT_PUBLIC_DOMAIN + product.image} alt={product.title}/></div>
+      <div className={styles.logo}>
+        <Image
+          src={process.env.NEXT_PUBLIC_DOMAIN + product.image}
+          alt={product.title}
+          width={70}
+          height={70}
+          quality={100}
+        />
+      </div>
       <div className={styles.title}>{product.title}</div>
       <div className={styles.price}>
         {priceRu(product.price)}
