@@ -12,4 +12,5 @@
 
 .vline {
     border-left: 1px solid var(--gray-light);
+    min-height: 30px;
 }

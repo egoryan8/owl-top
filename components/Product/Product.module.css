@@ -1,0 +1,39 @@
+.product {
+    display: grid;
+    grid-template-columns: [start] 70px [logoend] 30px [titlestart] calc(50% - 100px) [middle] 1fr [pricestart] auto [priceend] 40px [creditstart] auto [creditend] 40px [ratestart] auto [end];
+    margin-bottom: 30px;
+    padding: 30px;
+}
+
+.logo {
+    grid-column: start / logoend;
+    grid-row: 1 / span 2;
+}
+
+.title, .tags {
+    grid-column: titlestart / middle;
+}
+
+.price, .priceTitle {
+    grid-column: pricestart / priceend;
+}
+
+.credit,.creditTitle {
+    grid-column: creditstart / creditend;
+}
+
+.rating, .rateTitle {
+    grid-column: ratestart / end;
+}
+
+.hr, .description, .actions {
+    grid-column: start / end;
+}
+
+.feature {
+    grid-column: start / middle;
+}
+
+.advBlock {
+    grid-column: middle / end;
+}
