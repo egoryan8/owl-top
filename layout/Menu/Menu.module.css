@@ -37,15 +37,7 @@
 }
 
 .secondLevelBlock {
-  display: none;
-}
-
-.secondLevelBlockOpened {
-  display: block;
-}
-
-.secondLevelBlockOpened:last-child {
-  margin-bottom: 20px;
+  overflow: hidden;
 }
 
 .thirdLevel {
@@ -56,6 +48,10 @@
   font-size: 14px;
   line-height: 19px;
   display: block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 180px;
+  overflow: hidden;
 }
 
 .thirdLevelActive,
