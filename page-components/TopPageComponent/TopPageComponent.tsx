@@ -29,7 +29,7 @@ const TopPageComponent = ({ page, firstCategory, products }: TopPageComponentPro
     <div className={styles.wrapper}>
       <div className={styles.title}>
         <Htag tag='h1'>{page.title}</Htag>
-        {sortedProducts && <Tag color='gray' size='m'>{products.length}</Tag>}
+        {sortedProducts && <Tag className={styles.productsTag} color='gray' size='m'>{products.length}</Tag>}
         <Sort sort={sort} setSort={setSort}/>
       </div>
       <div>
