@@ -79,6 +79,15 @@
     line-height: 19px;
 }
 
+.rateTitle a {
+    color: var(--primary);
+    transition: opacity .4s;
+}
+
+.rateTitle a:hover {
+    opacity: .7;
+}
+
 .oldPrice {
     margin-left: 5px;
 }
