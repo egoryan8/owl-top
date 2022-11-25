@@ -10,7 +10,7 @@ import {useForm, Controller} from "react-hook-form";
 import {IReviewForm} from "./ReviewForm.interface";
 
 const ReviewForm = ({productId, className, ...props}: ReviewFormProps): JSX.Element => {
-  const {register, control, handleSubmit} = useForm<IReviewForm>();
+  const {register, control, handleSubmit, formState: {errors}} = useForm<IReviewForm>();
 
   const onSubmit = (data: IReviewForm) => {
     console.log(data);
@@ -19,8 +19,17 @@ const ReviewForm = ({productId, className, ...props}: ReviewFormProps): JSX.Elem
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className={cn(styles.form, className)} {...props}>
-        <Input {...register('name')} placeholder='Имя'/>
-        <Input {...register('title')} className={styles.title} placeholder='Заголовок отзыва'/>
+        <Input
+          {...register('name', {required: {value: true, message: 'Введите имя'}})}
+          placeholder='Имя'
+          error={errors.name}
+        />
+        <Input
+          {...register('title', {required: {value: true, message: 'Введите заголовок'}})}
+          className={styles.title}
+          placeholder='Заголовок отзыва'
+          error={errors.title}
+        />
         <div className={styles.rating}>
           <span>Оценка: </span>
           <Controller
@@ -31,7 +40,12 @@ const ReviewForm = ({productId, className, ...props}: ReviewFormProps): JSX.Elem
             )}
           />
         </div>
-        <Textarea {...register('description')} className={styles.description} placeholder='Текст отзыва'/>
+        <Textarea
+          {...register('description', {required: {value: true, message: 'Введите текст отзыва'}})}
+          className={styles.description}
+          placeholder='Текст отзыва'
+          error={errors.description}
+        />
         <div className={styles.submit}>
           <Button appearance='primary'>Отправить</Button>
           <span className={styles.info}>* Перед публикацией отзыв пройдет предварительную модерацию и проверку</span>
