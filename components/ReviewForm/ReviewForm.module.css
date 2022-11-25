@@ -27,23 +27,39 @@
     gap: 20px;
 }
 
-.success {
-    background: var(--green-light);
+.panel {
     padding: 20px;
     position: relative;
     border-radius: 5px;
     margin-top: 20px;
 }
 
+.success {
+    background: var(--green-light);
+}
+
+.error {
+    background: var(--red-light);
+}
+
+.error .close line {
+    stroke: var(--red);
+}
+
 .successTitle {
     font-weight: bold;
 }
 
-.successClose {
+.close {
     position: absolute;
     top: 20px;
     right: 20px;
     cursor: pointer;
+    transition: transform .5s;
+}
+
+.close:hover {
+    transform: scale(1.5);
 }
 
 @media (max-width: 1160px) {
