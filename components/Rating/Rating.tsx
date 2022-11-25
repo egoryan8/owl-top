@@ -4,7 +4,7 @@ import { RatingProps } from './Rating.props';
 import cn from 'classnames';
 import JSXStyle from 'styled-jsx/style';
 
-const Rating = forwardRef(({ isEditable = false, rating, setRating, ...props }: RatingProps, ref:ForwardedRef<HTMLDivElement>): JSX.Element => {
+const Rating = forwardRef(({ error, isEditable = false, rating, setRating, ...props }: RatingProps, ref:ForwardedRef<HTMLDivElement>): JSX.Element => {
   const [ratingArray, setRatingArray] = React.useState<JSX.Element[]>(new Array(5).fill(<></>));
 
   React.useEffect(() => {
@@ -61,10 +61,13 @@ const Rating = forwardRef(({ isEditable = false, rating, setRating, ...props }: 
     setRatingArray(updatedArray);
   };
   return (
-    <div {...props} ref={ref}>
+    <div {...props} ref={ref} className={cn(styles.ratingWrapper, {
+      [styles.error]: error,
+    })}>
       {ratingArray.map((rating, index) => (
         <span key={index}>{rating}</span>
       ))}
+      {error && <span className={styles.errorMessage}>{error.message}</span>}
     </div>
   );
 });
