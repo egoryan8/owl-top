@@ -7,7 +7,7 @@
   border: none;
   border-radius: 5px;
   font-size: 14px;
-  transition: all 0.3s;
+  transition: all .8s;
 }
 
 .primary {
@@ -33,9 +33,9 @@
 .arrow {
   display: inline-block;
   margin-left: 10px;
+  transition: all 0.4s;
 }
 
 .down {
   transform: rotate(90deg);
-  transition: all 0.4s;
 }
