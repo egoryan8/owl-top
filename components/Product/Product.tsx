@@ -93,7 +93,7 @@ const Product = ({product}: ProductProps): JSX.Element => {
             className={styles.reviewButton}
             onClick={() => setIsReviewOpened(!isReviewOpened)}
           >
-            {isReviewOpened ? 'Скрыть отзывы' : 'Читать отзывы'}
+            {isReviewOpened ? 'Скрыть отзывы' : product.reviews.length > 0 ? 'Читать отзывы' : 'Написать отзыв'}
           </Button>
         </div>
       </Card>
@@ -104,10 +104,10 @@ const Product = ({product}: ProductProps): JSX.Element => {
           [styles.closed]: !isReviewOpened,
         })}>
         {product.reviews.map(r => (
-          <>
-            <Review review={r} key={r._id}/>
+          <div key={r._id}>
+            <Review review={r}/>
             <Divider/>
-          </>
+          </div>
         ))}
         <ReviewForm productId={product._id}/>
       </Card>
