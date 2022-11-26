@@ -10,7 +10,7 @@ import {useForm, Controller} from "react-hook-form";
 import {IReviewForm, IReviewSentResponse} from "./ReviewForm.interface";
 import axios from "axios";
 import {API} from "../../helpers/api";
-import {motion} from "framer-motion";
+import CloseMessageIcon from '../../assets/img/closeMessage.svg';
 
 const ReviewForm = ({productId, className, ...props}: ReviewFormProps): JSX.Element => {
   const {register, control, handleSubmit, formState: {errors}, reset} = useForm<IReviewForm>();
@@ -21,12 +21,15 @@ const ReviewForm = ({productId, className, ...props}: ReviewFormProps): JSX.Elem
     try {
       const {data} = await axios.post<IReviewSentResponse>(API.review.createDemo, {...formData, productId});
       if (data.message) {
+        setError('');
         setIsSuccess(true);
         reset();
       } else {
-        setError('Что-то пошло не так :(')
+        setIsSuccess(false);
+        setError('Что-то пошло не так :(');
       }
     } catch (e: any) {
+      setIsSuccess(false);
       setError('Что-то пошло не так: ' + e.message);
     }
   };
@@ -73,28 +76,18 @@ const ReviewForm = ({productId, className, ...props}: ReviewFormProps): JSX.Elem
           <span className={styles.info}>* Перед публикацией отзыв пройдет предварительную модерацию и проверку</span>
         </div>
       </div>
-      { isSuccess &&
+      {isSuccess &&
         <div className={cn(styles.panel, styles.success)}>
           <div className={styles.successTitle}>Ваш отзыв отправлен!</div>
           <div>
             Спасибо, ваш отзыв будет опубликован после проверки.
           </div>
-          <svg className={styles.close} onClick={() => setIsSuccess(false)} width="12" height="12" viewBox="0 0 12 12"
-               fill="none"
-               xmlns="http://www.w3.org/2000/svg">
-            <line x1="2.06066" y1="1.93934" x2="10.5459" y2="10.4246" stroke="#1CC37E" strokeWidth="3"/>
-            <line x1="1.93934" y1="10.4246" x2="10.4246" y2="1.93935" stroke="#1CC37E" strokeWidth="3"/>
-          </svg>
+          <CloseMessageIcon className={styles.close} onClick={() => setIsSuccess(false)} strokeWidth='3'/>
         </div>}
-      { error &&
+      {error &&
         <div className={cn(styles.panel, styles.error)}>
-          <div className={styles.errorTitle}>{error}</div>
-          <svg className={styles.close} onClick={() => setError('')} width="12" height="12" viewBox="0 0 12 12"
-               fill="none"
-               xmlns="http://www.w3.org/2000/svg">
-            <line x1="2.06066" y1="1.93934" x2="10.5459" y2="10.4246" stroke="#1CC37E" strokeWidth="3"/>
-            <line x1="1.93934" y1="10.4246" x2="10.4246" y2="1.93935" stroke="#1CC37E" strokeWidth="3"/>
-          </svg>
+          <div className={styles.errorTitle}>{'Ошибка'}</div>
+          <CloseMessageIcon className={styles.close} onClick={() => setError('')} strokeWidth='3'/>
         </div>}
     </form>
   );

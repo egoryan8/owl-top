@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './Sort.module.css';
 import {SortEnum, SortProps} from './Sort.props';
 import cn from 'classnames';
+import SortIcon from '../../assets/img/sort.svg';
 
 const Sort = ({sort, setSort, className, ...props}: SortProps): JSX.Element => {
   return (
@@ -12,11 +13,7 @@ const Sort = ({sort, setSort, className, ...props}: SortProps): JSX.Element => {
           [styles.active]: sort === SortEnum.Rating
         })}
       >
-        <svg className={styles.sortIcon} width="20" height="13" viewBox="0 0 20 13" fill="#7653FC" xmlns="http://www.w3.org/2000/svg">
-          <rect width="20" height="3" rx="1.5"/>
-          <rect y="5" width="14" height="3" rx="1.5"/>
-          <rect y="10" width="8" height="3" rx="1.5"/>
-        </svg>
+        <SortIcon className={styles.sortIcon}/>
         По рейтингу
       </span>
       <span
@@ -25,11 +22,7 @@ const Sort = ({sort, setSort, className, ...props}: SortProps): JSX.Element => {
           [styles.active]: sort === SortEnum.Price
         })}
       >
-        <svg className={styles.sortIcon} width="20" height="13" viewBox="0 0 20 13" fill="#7653FC" xmlns="http://www.w3.org/2000/svg">
-          <rect width="20" height="3" rx="1.5"/>
-          <rect y="5" width="14" height="3" rx="1.5"/>
-          <rect y="10" width="8" height="3" rx="1.5"/>
-        </svg>
+        <SortIcon className={styles.sortIcon}/>
         По цене
       </span>
 

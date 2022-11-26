@@ -52,6 +52,10 @@
     gap: 10px;
 }
 
+.filled circle {
+    fill: #FC836D;
+}
+
 @media (max-width: 1200px) {
     .hh {
         grid-template-columns: 1fr;

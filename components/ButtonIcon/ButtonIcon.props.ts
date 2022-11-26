@@ -1,7 +1,7 @@
 import { ButtonHTMLAttributes, DetailedHTMLProps, ReactNode } from 'react';
-import up from './up.svg';
-import menu from './menu.svg';
-import close from './close.svg';
+import up from '../../assets/img/upBtn.svg';
+import menu from '../../assets/img/menuBtn.svg';
+import close from '../../assets/img/closeBtn.svg';
 
 export const icons = {
   up,
