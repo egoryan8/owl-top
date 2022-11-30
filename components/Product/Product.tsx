@@ -133,6 +133,7 @@ const Product = motion(forwardRef(({
             arrow={isReviewOpened ? 'down' : 'right'}
             className={styles.reviewButton}
             onClick={() => setIsReviewOpened(!isReviewOpened)}
+            aria-expanded={isReviewOpened}
           >
             {isReviewOpened ? 'Скрыть отзывы' : product.reviews.length > 0 ? 'Читать отзывы' : 'Написать отзыв'}
           </Button>

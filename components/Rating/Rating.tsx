@@ -42,7 +42,13 @@ const Rating = forwardRef(({ error, isEditable = false, rating, setRating, ...pr
           })}
           onMouseEnter={() => changeDisplay(index + 1)}
           onMouseLeave={() => changeDisplay(rating)}
-          onClick={() => onClick(index + 1)}>
+          onClick={() => onClick(index + 1)}
+          role={isEditable ? "slider" : ''}
+          aria-valuenow={rating}
+          aria-valuemax={5}
+          aria-valuemin={1}
+          aria-label={isEditable ? 'Укажите рейтинг' : ('рейтинг: ' + rating)}
+        >
           <RateStarsIcon
             tabIndex={isEditable ? 0 : -1}
             onKeyDown={(e: React.KeyboardEvent<SVGElement>) => isEditable && handleSpace(index + 1, e)}
@@ -59,7 +65,7 @@ const Rating = forwardRef(({ error, isEditable = false, rating, setRating, ...pr
       {ratingArray.map((rating, index) => (
         <span key={index}>{rating}</span>
       ))}
-      {error && <span className={styles.errorMessage}>{error.message}</span>}
+      {error && <span role="alert" className={styles.errorMessage}>{error.message}</span>}
     </div>
   );
 });

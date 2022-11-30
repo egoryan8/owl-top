@@ -13,7 +13,7 @@ import {API} from "../../helpers/api";
 import CloseMessageIcon from '../../assets/img/closeMessage.svg';
 
 const ReviewForm = ({productId, className, ...props}: ReviewFormProps): JSX.Element => {
-  const {register, control, handleSubmit, formState: {errors}, reset} = useForm<IReviewForm>();
+  const {register, control, handleSubmit, formState: {errors}, reset, clearErrors} = useForm<IReviewForm>();
   const [isSuccess, setIsSuccess] = useState<boolean>(false)
   const [error, setError] = useState<string>('');
 
@@ -41,12 +41,14 @@ const ReviewForm = ({productId, className, ...props}: ReviewFormProps): JSX.Elem
           {...register('name', {required: {value: true, message: 'Введите имя'}})}
           placeholder='Имя'
           error={errors.name}
+          aria-invalid={!!errors.name}
         />
         <Input
           {...register('title', {required: {value: true, message: 'Введите заголовок'}})}
           className={styles.title}
           placeholder='Заголовок отзыва'
           error={errors.title}
+          aria-invalid={!!errors.title}
         />
         <div className={styles.rating}>
           <span>Оценка: </span>
@@ -68,11 +70,13 @@ const ReviewForm = ({productId, className, ...props}: ReviewFormProps): JSX.Elem
         <Textarea
           {...register('description', {required: {value: true, message: 'Введите текст отзыва'}})}
           className={styles.description}
-          placeholder='Текст отзыва'
+          placeholder="Текст отзыва"
           error={errors.description}
+          aria-label="Текст отзыва"
+          aria-invalid={!!errors.description}
         />
         <div className={styles.submit}>
-          <Button appearance='primary'>Отправить</Button>
+          <Button appearance='primary' onClick={() => clearErrors()}>Отправить</Button>
           <span className={styles.info}>* Перед публикацией отзыв пройдет предварительную модерацию и проверку</span>
         </div>
       </div>
