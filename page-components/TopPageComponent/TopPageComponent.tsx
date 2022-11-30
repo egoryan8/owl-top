@@ -11,11 +11,11 @@ import Sort from "../../components/Sort/Sort";
 import {SortEnum} from "../../components/Sort/Sort.props";
 import {sortReducer} from "./sort.reducer";
 import Product from "../../components/Product/Product";
-import {useScrollY} from "../../hooks/useScrollY";
+import {useReducedMotion} from "framer-motion";
 
 const TopPageComponent = ({ page, firstCategory, products }: TopPageComponentProps): JSX.Element => {
   const [{products: sortedProducts, sort}, dispatchSort] = useReducer(sortReducer, {products, sort: SortEnum.Rating});
-  const y = useScrollY();
+  const shouldReduceMotion = useReducedMotion();
 
   const setSort = (sort: SortEnum) => {
     dispatchSort({type: sort});
@@ -35,7 +35,7 @@ const TopPageComponent = ({ page, firstCategory, products }: TopPageComponentPro
       <ul className={styles.products}>
         {sortedProducts && sortedProducts.map(p => (
           <li key={p._id}>
-            <Product layout product={p}/>
+            <Product layout={!shouldReduceMotion} product={p}/>
           </li>
         ))}
       </ul>

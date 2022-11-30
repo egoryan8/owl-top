@@ -4,13 +4,14 @@ import { HeaderProps } from './Header.props';
 import cn from 'classnames';
 import Logo from '../../assets/img/logo.svg';
 import ButtonIcon from "../../components/ButtonIcon/ButtonIcon";
-import { motion } from 'framer-motion';
+import {motion, useReducedMotion} from 'framer-motion';
 import Sidebar from "../Sidebar/Sidebar";
 import {useRouter} from "next/router";
 
 const Header = ({className, ...props }: HeaderProps): JSX.Element => {
   const [isOpened, setIsOpened] = useState<boolean>(false);
   const router = useRouter();
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
     setIsOpened(false);
@@ -20,7 +21,7 @@ const Header = ({className, ...props }: HeaderProps): JSX.Element => {
     opened: {
       opacity: 1,
       x: 0,
-      transition: {
+      transition: shouldReduceMotion ? {} : {
         stiffness: 20,
       }
     },
