@@ -2,7 +2,7 @@ import { AppProps } from 'next/dist/shared/lib/router/router';
 import Head from 'next/head';
 import '../styles/globals.css';
 
-function MyApp({ Component, pageProps }: AppProps): JSX.Element {
+function MyApp({ Component, pageProps, router }: AppProps): JSX.Element {
   return (
     <>
       <Head>
@@ -13,6 +13,8 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
           rel="stylesheet"
         />
         <link rel="icon" type="image/x-icon" href="https://img.icons8.com/cotton/512/owl.png"/>
+        <meta property="og:url" content={process.env.NEXT_PUBLIC_DOMAIN + router.asPath}/>
+        <meta property="og:locale" content="ru_RU"/>
       </Head>
       <Component {...pageProps} />
     </>
