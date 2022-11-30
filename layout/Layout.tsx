@@ -13,7 +13,9 @@ const Layout = ({ children }: LayoutProps): JSX.Element => {
     <div className={styles.wrapper}>
       <Header className={styles.header} />
       <Sidebar className={styles.sidebar} />
-      <main className={styles.body}>{children}</main>
+      <main className={styles.body} role="main">
+        {children}
+      </main>
       <Footer className={styles.footer} />
       <UpButton/>
     </div>

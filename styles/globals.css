@@ -30,3 +30,10 @@ a {
   --gray-light: #ebebeb;
   --gray-dark: #6c7077;
 }
+
+.visuallyHidden {
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  position: absolute;
+}

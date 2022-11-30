@@ -128,7 +128,11 @@ const Menu = (): JSX.Element => {
     ));
   };
 
-  return <div className={styles.menu}>{renderFirstLevel()}</div>;
+  return (
+    <nav className={styles.menu} role="navigation">
+      {renderFirstLevel()}
+    </nav>
+  )
 };
 
 export default Menu;
