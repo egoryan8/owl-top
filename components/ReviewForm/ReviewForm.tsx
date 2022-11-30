@@ -81,17 +81,29 @@ const ReviewForm = ({productId, className, ...props}: ReviewFormProps): JSX.Elem
         </div>
       </div>
       {isSuccess &&
-        <div className={cn(styles.panel, styles.success)}>
+        <div className={cn(styles.panel, styles.success)} role="alert">
           <div className={styles.successTitle}>Ваш отзыв отправлен!</div>
           <div>
             Спасибо, ваш отзыв будет опубликован после проверки.
           </div>
-          <CloseMessageIcon className={styles.close} onClick={() => setIsSuccess(false)} strokeWidth='3'/>
+          <button
+            onClick={() => setIsSuccess(false)}
+            className={styles.close}
+            aria-label="Закрыть оповещение"
+          >
+            <CloseMessageIcon strokeWidth='3'/>
+          </button>
         </div>}
       {error &&
         <div className={cn(styles.panel, styles.error)}>
           <div className={styles.errorTitle}>{'Ошибка'}</div>
-          <CloseMessageIcon className={styles.close} onClick={() => setError('')} strokeWidth='3'/>
+          <button
+            onClick={() => setError('')}
+            className={styles.close}
+            aria-label="Закрыть оповещение"
+          >
+            <CloseMessageIcon strokeWidth='3'/>
+          </button>
         </div>}
     </form>
   );
