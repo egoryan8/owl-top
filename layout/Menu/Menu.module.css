@@ -26,7 +26,6 @@
   color: var(--gray-dark);
   font-weight: 300;
   font-size: 12px;
-  line-height: 16px;
 }
 
 .secondBlock {
@@ -52,6 +51,7 @@
   white-space: nowrap;
   max-width: 180px;
   overflow: hidden;
+  outline-offset: -1px;
 }
 
 .thirdLevelActive,

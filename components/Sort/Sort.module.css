@@ -17,19 +17,22 @@
   gap: 40px;
 }
 
-.wrapper span {
+.sortButton {
   display: grid;
   grid-template-columns: 20px 1fr;
   align-items: center;
   gap: 8px;
   cursor: pointer;
   transition: opacity .4s;
+  border: none;
+  background: transparent;
+  font-family: var(--font-family);
 }
 
-.wrapper span:hover {
+.sortButton:hover {
   opacity: .7;
 }
 
-.wrapper span:not(.active) {
+.sortButton:not(.active) {
   grid-template-columns: 1fr;
 }

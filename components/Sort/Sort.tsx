@@ -7,24 +7,31 @@ import SortIcon from '../../assets/img/sort.svg';
 const Sort = ({sort, setSort, className, ...props}: SortProps): JSX.Element => {
   return (
     <div className={cn(styles.wrapper, className)} {...props}>
-      <span
+      <div style={{display: 'none'}} id="sort">Сортировка</div>
+      <button
+        id="rating"
+        aria-selected={sort === SortEnum.Rating}
+        aria-labelledby="sort rating"
         onClick={() => setSort(SortEnum.Rating)}
-        className={cn({
+        className={cn(styles.sortButton, {
           [styles.active]: sort === SortEnum.Rating
         })}
       >
         <SortIcon className={styles.sortIcon}/>
         По рейтингу
-      </span>
-      <span
+      </button>
+      <button
+        id="price"
+        aria-labelledby="sort price"
+        aria-selected={sort === SortEnum.Price}
         onClick={() => setSort(SortEnum.Price)}
-        className={cn({
+        className={cn(styles.sortButton, {
           [styles.active]: sort === SortEnum.Price
         })}
       >
         <SortIcon className={styles.sortIcon}/>
         По цене
-      </span>
+      </button>
 
     </div>
 
