@@ -1,3 +1,8 @@
+.menu {
+  padding: 0;
+  list-style: none;
+}
+
 .firstLevel {
   display: grid;
   grid-template-columns: 24px 1fr;
@@ -20,6 +25,8 @@
 }
 
 .secondLevel {
+  border: none;
+  background: transparent;
   margin-bottom: 10px;
   cursor: pointer;
   text-transform: uppercase;
@@ -37,6 +44,8 @@
 
 .secondLevelBlock {
   overflow: hidden;
+  list-style: none;
+  padding: 0;
 }
 
 .thirdLevel {

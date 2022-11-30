@@ -32,9 +32,13 @@ const TopPageComponent = ({ page, firstCategory, products }: TopPageComponentPro
         {sortedProducts && <Tag className={styles.productsTag} color='gray' size='m' aria-label={products.length + ' курсов'}>{products.length}</Tag>}
         <Sort sort={sort} setSort={setSort}/>
       </div>
-      <div>
-        {sortedProducts && sortedProducts.map(p => (<Product layout key={p._id} product={p}/>))}
-      </div>
+      <ul className={styles.products}>
+        {sortedProducts && sortedProducts.map(p => (
+          <li key={p._id}>
+            <Product layout product={p}/>
+          </li>
+        ))}
+      </ul>
       <div className={styles.hhTitle}>
         <Htag tag='h2'>Вакансии - {page.category}</Htag>
         <Tag color='red' size='m'>hh.ru</Tag>
