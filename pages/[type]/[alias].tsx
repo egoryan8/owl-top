@@ -31,7 +31,7 @@ function TopPage({firstCategory, page, products}: CourseProps): JSX.Element {
         firstCategory={firstCategory}
         page={page}
         products={products}
-      />;
+      />  
     </>
 }
 
