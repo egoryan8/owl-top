@@ -6,11 +6,6 @@
   max-width: 100%;
   overflow: hidden;
   background: var(--white);
-  transition: all .4s ease;
-}
-
-.category:hover {
-  transform: scale(1.15);
 }
 
 .title {

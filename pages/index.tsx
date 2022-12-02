@@ -9,8 +9,6 @@ import Htag from '../components/Htag/Htag';
 import styles from '../styles/home.module.css'
 
 function Home({ menu }: HomeProps): JSX.Element {
-  const arr = menu.map(i => i);
-  console.log(arr)
   return (
     <div>
       <Htag tag='h1'>OwlTop - лучший агрегатор онлайн курсов.</Htag>
