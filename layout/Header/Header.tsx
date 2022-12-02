@@ -7,6 +7,7 @@ import ButtonIcon from "../../components/ButtonIcon/ButtonIcon";
 import {motion, useReducedMotion} from 'framer-motion';
 import Sidebar from "../Sidebar/Sidebar";
 import {useRouter} from "next/router";
+import Link from "next/link";
 
 const Header = ({className, ...props }: HeaderProps): JSX.Element => {
   const [isOpened, setIsOpened] = useState<boolean>(false);
@@ -32,7 +33,9 @@ const Header = ({className, ...props }: HeaderProps): JSX.Element => {
   };
 
   return <header className={cn(styles.header, className)} {...props}>
-    <Logo/>
+    <Link href='/'>
+      <Logo/>
+    </Link>
     <ButtonIcon appearance={"white"} icon={"menu"} onClick={() => setIsOpened(true)}/>
     <motion.div
       className={styles.mobileMenu}
