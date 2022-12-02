@@ -12,7 +12,6 @@
 
 .header {
   grid-area: header;
-  display: none;
 }
 
 .sidebar {
